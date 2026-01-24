@@ -90,7 +90,7 @@ onBeforeUnmount(() => {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
 
 .logo {
@@ -172,7 +172,46 @@ onBeforeUnmount(() => {
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(19, 9, 61, 0.6);
   backdrop-filter: blur(6px);
-  margin-right: 4rem;
+  margin-right: 0;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: auto 1fr auto;
+    padding: 0 1rem;
+  }
+
+  .nav {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    justify-items: center;
+  }
+
+  .logo {
+    justify-self: center;
+  }
+
+  .nav {
+    justify-content: center;
+  }
+
+  .locale {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav a {
+    padding: 6px 8px;
+    font-size: 14px;
+  }
 }
 
 .locale-link {

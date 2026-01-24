@@ -15,28 +15,53 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-
   flex-direction: row;
-  margin-top: 4rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 4rem auto 0;
+  max-width: 1100px;
+  padding: 0 1.5rem;
 }
 .portrait {
-  width: 30%;
-  height: 500px;
+  width: clamp(220px, 30vw, 360px);
+  aspect-ratio: 1 / 1;
+  min-width: 220px;
   border: 2px solid var(--color-text-primary);
   margin: 0;
   padding: 0;
-  background-image: url("../../public/me.png");
+  background-image: url("/me.png");
   background-size: cover;
   background-position: center;
   border-radius: 5%;
+  flex: 0 0 auto;
 }
 .description {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
-  max-width: 50%;
+  max-width: 560px;
+  flex: 1 1 320px;
   white-space: pre-line;
+}
+
+@media (max-width: 900px) {
+  .personal_box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .description {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .portrait {
+    width: min(260px, 85vw);
+  }
 }
 </style>
 

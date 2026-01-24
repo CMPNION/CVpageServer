@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  nuxt-frontend:
+    build: .
+    container_name: cv_site_frontend
+    ports:
+      - "5191:3000" # внешний порт 5191 -> внутренний порт 3000
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
