@@ -1,0 +1,76 @@
+:root {
+  /* Фоновые цвета */
+  --color-bg-dark: #040206;
+  --color-bg-dark-gradient: linear-gradient(to bottom, #040206 0%, rgba(4, 2, 6, 0) 100%);
+
+  --color-bg-secondary: #13093d;
+  --color-bg-secondary-gradient: linear-gradient(to bottom, #13093d 0%, rgba(19, 9, 61, 0) 100%);
+
+  --color-bg-highlight: #412855;
+  --color-bg-highlight-gradient: linear-gradient(to bottom, #412855 0%, rgba(65, 40, 85, 0) 100%);
+
+  /* Акцентные цвета */
+  --color-accent-success: #4cc35b;
+  --color-accent-success-gradient: linear-gradient(
+    to bottom,
+    #4cc35b 0%,
+    rgba(76, 195, 91, 0) 100%
+  );
+
+  --color-accent-bright: #68da23;
+  --color-accent-bright-gradient: linear-gradient(
+    to bottom,
+    #68da23 0%,
+    rgba(104, 218, 35, 0) 100%
+  );
+
+  /* Текст */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #cccccc;
+
+  /* Бордеры / разделители */
+  --color-border: #412855;
+}
+
+
+*{
+    user-select: none;
+}
+
+/* Глобальные базовые стили */
+body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-primary);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--color-accent-bright);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent-success);
+}
+
+.card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 16px;
+}
+.button-accent {
+  background: var(--color-accent-bright-gradient);
+  color: var(--color-text-primary);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.button-accent:hover {
+  background: var(--color-accent-success-gradient);
+}

@@ -1,0 +1,20 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "contacts": "Contact me"
+  },
+  "personal": {
+    "greet": "Hello, I'm Dmitry!",
+    "description": "I am a backend developer focused on building reliable, scalable, and efficient systems behind modern applications.\n \nMy work is centered on clean architecture, predictable behavior, and maintainable code. I care deeply about performance, data integrity, and how different parts of a system communicate with each other.\n \nMy goal is to design backend solutions that remain stable under load, evolve gracefully with business needs, and provide a solid foundation for great user experiences."
+  },
+  "locale": {
+    "ru": "RU",
+    "en": "EN"
+  },
+    "errors": {
+    "title": "Page not found \n(Or under development)",
+    "subtitle": "Looks like this link is broken. Check the URL or return home.",
+    "backHome": "Back to home"
+  }
+}
