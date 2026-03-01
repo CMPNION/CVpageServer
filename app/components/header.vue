@@ -8,30 +8,24 @@
         </NuxtLink>
       </div>
       <nav class="nav">
-        <NuxtLink :to="localePath('/')" exact-active-class="active">{{ $t('nav.home') }}</NuxtLink>
-        <NuxtLink :to="localePath('/projects')" exact-active-class="active">{{
-          $t('nav.projects')
-        }}</NuxtLink>
-        <a
-          class="nav-link"
-          href="https://t.me/cmpnion"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <LinkBtn :to="localePath('/')" exact-active-class="active">
+          {{ $t('nav.home') }}
+        </LinkBtn>
+        <LinkBtn :to="localePath('/projects')" exact-active-class="active">
+          {{ $t('nav.projects') }}
+        </LinkBtn>
+        <LinkBtn href="https://t.me/cmpnion" is-external>
           {{ $t('nav.contacts') }}
-        </a>
+        </LinkBtn>
       </nav>
       <div class="locale">
-        <button
+        <Btn
           v-for="loc in locales"
           :key="loc.code"
-          type="button"
-          class="locale-link"
-          :class="{ active: loc.code === locale }"
+          :label="loc.name"
+          :is-active="loc.code === locale"
           @click="setLocale(loc.code)"
-        >
-          <span>{{ loc.name }}</span>
-        </button>
+        />
       </div>
     </div>
   </header>
@@ -141,27 +135,6 @@ onBeforeUnmount(() => {
   }
 }
 
-.nav a {
-  color: var(--color-text-primary);
-  text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-bottom: 2px solid transparent;
-  transition:
-    color 0.2s ease,
-    border-color 0.2s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.nav a:hover {
-  color: var(--color-accent-success);
-  border-bottom-color: var(--color-accent-bright);
-  background: rgba(255, 255, 255, 0.06);
-}
-
 .locale {
   display: flex;
   align-items: center;
@@ -208,62 +181,5 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 480px) {
-  .nav a {
-    padding: 6px 8px;
-    font-size: 14px;
-  }
-}
-
-.locale-link {
-  position: relative;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
-  border: 1px solid transparent;
-  border-radius: 999px;
-  padding: 6px 12px;
-  background: transparent;
-  cursor: pointer;
-  overflow: hidden;
-  transition:
-    color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.locale-link::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(135deg, rgba(104, 218, 35, 0.35), rgba(76, 195, 91, 0.15));
-  opacity: 0;
-  transform: scale(0.85);
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
-  z-index: 0;
-}
-
-.locale-link span {
-  position: relative;
-  z-index: 1;
-}
-
-.locale-link:hover {
-  color: var(--color-text-primary);
-  border-color: var(--color-border);
-  transform: translateY(-1px);
-}
-
-.locale-link.active {
-  color: var(--color-text-primary);
-  border-color: var(--color-accent-bright);
-}
-
-.locale-link.active::after {
-  opacity: 1;
-  transform: scale(1);
 }
 </style>

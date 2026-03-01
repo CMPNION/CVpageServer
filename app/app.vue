@@ -4,3 +4,9 @@
     <NuxtPage />
   </div>
 </template>
+
+<style>
+* {
+  white-space: pre-line;
+}
+</style>

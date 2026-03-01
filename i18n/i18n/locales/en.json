@@ -12,9 +12,14 @@
     "ru": "RU",
     "en": "EN"
   },
-    "errors": {
+  "errors": {
     "title": "Page not found \n(Or under development)",
     "subtitle": "Looks like this link is broken. Check the URL or return home.",
     "backHome": "Back to home"
+  },
+  "projects": {
+    "description": "Here is a list of projects I have worked on.\nThese include projects I developed both for myself and as part of real-world business cases",
+    "visit": "Visit project",
+    "learnMore": "Learn more"
   }
 }
