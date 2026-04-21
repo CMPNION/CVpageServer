@@ -11,19 +11,19 @@ const localizedDescription = computed(() =>
 )
 
 const isModalOpen = ref(false)
-
 const openModal = () => {
   isModalOpen.value = true
 }
-
 const closeModal = () => {
   isModalOpen.value = false
 }
 </script>
 
 <template>
-  <div class="project_box">
-    <img v-if="project.image" :src="project.image" :alt="project.name" class="project_image" />
+  <div
+    class="project_box"
+    :style="project.image ? { backgroundImage: `url(${project.image})` } : {}"
+  >
     <div class="project_info">
       <h3 class="project_title">{{ project.name }}</h3>
       <button type="button" class="project_link" @click="openModal">
@@ -31,6 +31,7 @@ const closeModal = () => {
       </button>
     </div>
   </div>
+
   <Teleport to="body">
     <div v-if="isModalOpen" class="modal_backdrop" @click.self="closeModal">
       <div class="modal_window" role="dialog" aria-modal="true">
@@ -47,29 +48,48 @@ const closeModal = () => {
 
 <style scoped>
 .project_box {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  gap: 1rem;
-  padding: 1.5rem;
+  justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.03);
   max-width: 400px;
   max-height: 400px;
   min-width: 400px;
   min-height: 200px;
+  overflow: hidden;
+
+  background-color: rgba(255, 255, 255, 0.03);
+  background-size: cover; /* картинка растянута на 100% */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* затемнение — без backdrop-filter, чтобы не было артефактов */
+.project_box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: inherit;
 }
 
 .project_info {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 0.5rem;
+  padding: 1.5rem; /* отступы теперь только здесь */
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* остальные стили без изменений */
 .project_link {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.05));
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -138,7 +158,6 @@ const closeModal = () => {
   margin: 0;
   font-size: 1.1rem;
 }
-
 .modal_text {
   margin: 0;
   opacity: 0.85;
